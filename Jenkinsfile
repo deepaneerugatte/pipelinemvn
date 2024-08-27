@@ -20,6 +20,6 @@ stage('building artifact'){
     message: 'hi Baby , build triggered successfully!!', 
     notifyCommitters: true, teamDomain: 'JENKINS_PROJECT', 
     tokenCredentialId: 'slack_token', 
-    username: 'deeparamya532@gmail.com'
+    username: 'JESDEE'
   }
 }
