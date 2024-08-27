@@ -14,10 +14,12 @@ stage('building artifact'){
      JD''', cc: 'ndeepa5227@gmail.com', from: '', replyTo: '', subject: 'Job triggered', to: 'deeparamya532@gmail.com'
   }
   stage('slack notification'){
-    slackSend channel: '#jenkins', 
-      color: 'good', 
-      message: 'hi Baby , build triggered successfully!!', 
-      teamDomain: 'JENKINS_PROJECT', 
-      tokenCredentialId: 'slack_token'
+    slackSend baseUrl: 'https://hooks.slack.com/services/', 
+    channel: '#jenkins', 
+    color: 'good', 
+    message: 'hi Baby , build triggered successfully!!', 
+    notifyCommitters: true, teamDomain: 'JENKINS_PROJECT', 
+    tokenCredentialId: 'slack_token', 
+    username: 'deeparamya532@gmail.com'
   }
 }
