@@ -2,7 +2,7 @@ node{
 stage('SCM'){
 git 'https://github.com/Java-Project-03-9AM/SpringMVCFormApp.git'
 }
-stage('building'){
+stage('building artifact'){
   def mvn=tool name: 'MAVEN_HOME', type: 'maven'
   sh "${mvn}/bin/mvn package"
 }
@@ -12,5 +12,12 @@ stage('building'){
      This to mention that your job ran successfully!!
      ThANKS,
      JD''', cc: 'ndeepa5227@gmail.com', from: '', replyTo: '', subject: 'Job triggered', to: 'deeparamya532@gmail.com'
+  }
+  stage('slack notification'){
+    slackSend channel: '#jenkins', 
+      color: 'good', 
+      message: 'hi Baby , build triggered successfully!!', 
+      teamDomain: 'JENKINS_PROJECT', 
+      tokenCredentialId: 'slack_token'
   }
 }
