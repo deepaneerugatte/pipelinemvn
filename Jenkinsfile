@@ -6,4 +6,11 @@ stage('building'){
   def mvn=tool name: 'MAVEN_HOME', type: 'maven'
   sh "${mvn}/bin/mvn package"
 }
+  stage('email notification'){
+    mail bcc: '', 
+     body: '''HI Deepa,
+     This to mention that your job ran successfully!!
+     ThANKS,
+     JD''', cc: 'ndeepa5227@gmail.com', from: '', replyTo: '', subject: 'Job triggered', to: 'deeparamya532@gmail.com'
+  }
 }
