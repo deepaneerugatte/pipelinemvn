@@ -11,6 +11,11 @@ stage('sonar report'){
 withSonarQubeEnv(installationName: 'sonarqube-server') {
 def maven=tool name: 'MAVEN_HOME', type: 'maven'
     sh "${maven}/bin/mvn clean package sonar:sonar"
+OR 
+stage('sonar report'){
+withSonarQubeEnv(installationName: 'sonarqube-server', credentialsId: 'newtoken') {
+def maven=tool name: 'MAVEN_HOME', type: 'maven'
+    sh "${maven}/bin/mvn clean package sonar:sonar"
 
 } */
 stage('sonar report'){
