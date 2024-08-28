@@ -1,8 +1,11 @@
 node{
+stage('SCM'){
+git 'https://github.com/Java-Project-03-9AM/SpringMVCFormApp.git'
+}
 stage('sonar report'){
-withSonarQubeEnv(credentialsId: 'newtoken') {
+withSonarQubeEnv('sonarqube-server') {
     def maven=tool name: 'MAVEN_HOME', type: 'maven'
-    sh "${maven}/bin/mvn sonar:sonar"
+    sh "${maven}/bin/mvn clean package sonar:sonar"
 }
 }
 }
