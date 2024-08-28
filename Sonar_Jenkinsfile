@@ -1,7 +1,8 @@
 node{
-{
-stage('')
-
-
+stage('sonar report'){
+withSonarQubeEnv(credentialsId: 'newtoken') {
+    def maven=tool name: 'MAVEN_HOME', type: 'maven'
+    sh "${maven}/bin/mvn sonar:sonar"
+}
 }
 }
