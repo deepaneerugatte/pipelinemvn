@@ -6,7 +6,7 @@ git 'https://github.com/Java-Project-03-9AM/SpringMVCFormApp.git'
 withSonarQubeEnv(credentialsId: 'newtoken') { 
     def maven=tool name: 'MAVEN_HOME', type: 'maven'
     sh "${maven}/bin/mvn clean package sonar:sonar"
-*\
+*/
 stage('sonar report'){
 withSonarQubeEnv(installationName: 'sonarqube-server') {
 def maven=tool name: 'MAVEN_HOME', type: 'maven'
