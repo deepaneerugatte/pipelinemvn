@@ -4,5 +4,12 @@ git 'https://github.com/Java-Project-03-9AM/SpringMVCFormApp.git'
 }
 stage('nexus arrtifact uploading to server')
 {
-
+nexusArtifactUploader artifacts: [[artifactId: 'webapplication',
+file: 'webapplication/target/webapplication.war', type: 'war']], 
+credentialsId: 'nexus', groupId: 'firstproject', 
+nexusUrl: 'http://192.168.0.169:8081/', 
+nexusVersion: 'nexus3', 
+protocol: 'http', repository: 
+'host-snapshot', 
+version: '1.0-SNAPSHOT'
 }
