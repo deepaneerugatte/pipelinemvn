@@ -13,3 +13,4 @@ protocol: 'http', repository:
 'host-snapshot', 
 version: '1.0-SNAPSHOT'
 }
+}
