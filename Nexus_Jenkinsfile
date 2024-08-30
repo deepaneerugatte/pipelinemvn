@@ -2,6 +2,10 @@ node{
 stage('SCM'){
 git 'https://github.com/deepaneerugatte/pipelinemvn.git'
 }
+stage('building artifact'){
+  def mvn=tool name: 'MAVEN_HOME', type: 'maven'
+  sh "${mvn}/bin/mvn package"
+}
 stage('nexus arrtifact uploading to server')
 {
 nexusArtifactUploader artifacts: [[artifactId: 'webapplication', classifier: '',
