@@ -1,6 +1,6 @@
 node{
 stage('SCM'){
-git 'https://github.com/deepaneerugatte/pipelinemvn.git'
+git 'https://github.com/deepaneerugatte/maven-firstwebproject.git'
 }
 stage('building artifact'){
   def mvn=tool name: 'MAVEN_HOME', type: 'maven'
