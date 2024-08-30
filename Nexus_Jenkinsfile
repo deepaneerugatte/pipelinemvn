@@ -2,3 +2,7 @@ node{
 stage('SCM'){
 git 'https://github.com/Java-Project-03-9AM/SpringMVCFormApp.git'
 }
+stage('nexus arrtifact uploading to server')
+{
+
+}
