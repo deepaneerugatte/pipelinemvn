@@ -11,10 +11,10 @@ stage('nexus arrtifact uploading to server')
 nexusArtifactUploader artifacts: [[artifactId: 'webapplication', classifier: '',
 file: 'webapplication/target/webapplication.war', type: 'war']], 
 credentialsId: 'nexus', groupId: 'firstproject', 
-nexusUrl: 'http://192.168.0.169:8081/', 
+nexusUrl: '192.168.0.169:8081', 
 nexusVersion: 'nexus3', 
-protocol: 'http', repository: 
-'host-snapshot', 
+protocol: 'http',
+repository: 'host-snapshot', 
 version: '1.0-SNAPSHOT'
 }
 }
