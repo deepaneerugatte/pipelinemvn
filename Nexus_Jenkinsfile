@@ -4,7 +4,7 @@ git 'https://github.com/deepaneerugatte/maven-firstwebproject.git'
 }
 stage('building artifact'){
   def mvn=tool name: 'MAVEN_HOME', type: 'maven'
-  sh "${mvn}/bin/mvn clean package"
+  sh "${mvn}/bin/mvn -f webapplication clean package"
 }
 stage('nexus arrtifact uploading to server')
 {
