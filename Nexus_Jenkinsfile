@@ -4,7 +4,7 @@ git 'https://github.com/deepaneerugatte/pipelinemvn.git'
 }
 stage('nexus arrtifact uploading to server')
 {
-nexusArtifactUploader artifacts: [[artifactId: 'webapplication', , classifier: ''
+nexusArtifactUploader artifacts: [[artifactId: 'webapplication', classifier: '',
 file: 'webapplication/target/webapplication.war', type: 'war']], 
 credentialsId: 'nexus', groupId: 'firstproject', 
 nexusUrl: 'http://192.168.0.169:8081/', 
