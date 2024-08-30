@@ -4,7 +4,7 @@ git 'https://github.com/deepaneerugatte/pipelinemvn.git'
 }
 stage('building artifact'){
   def mvn=tool name: 'MAVEN_HOME', type: 'maven'
-  sh "${mvn}/bin/mvn package"
+  sh "${mvn}/bin/mvn clean package"
 }
 stage('nexus arrtifact uploading to server')
 {
