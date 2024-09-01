@@ -1,0 +1,13 @@
+pipeline{
+  stages{
+    stage('SCM CHECKOUT'){
+
+    }
+    stage('BUILD ARTIFACT'){
+
+    }
+    stage('Deploy-war to remote tomcat server through SSH'){
+
+    }
+  }
+}
