@@ -1,13 +1,13 @@
 pipeline{
   stages{
     stage('SCM CHECKOUT'){
-
+     git branch: 'main', url: 'https://github.com/deepaneerugatte/maven-firstwebproject.git'
     }
-    stage('BUILD ARTIFACT'){
+/*    stage('BUILD ARTIFACT'){
 
     }
     stage('Deploy-war to remote tomcat server through SSH'){
 
     }
-  }
+  } */
 }
