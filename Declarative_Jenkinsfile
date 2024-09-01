@@ -3,7 +3,7 @@ pipeline{
     stage('SCM CHECKOUT')
      steps{
       cleanWs()
-      git branch: 'master', url: 'https://github.com/Java-Project-03-9AM/SpringMVCFormApp.git'
+      git branch: 'master', url: 'https://github.com/Java-Project-03-9AM/SpringMVCFormApp.git', depth: 1
       }
 /*    stage('BUILD ARTIFACT'){
 
