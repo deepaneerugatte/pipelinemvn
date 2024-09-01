@@ -1,20 +1,17 @@
 pipeline{
   stages{
-     stage('Clean Git Directory') {
-            steps {
-                sh 'rm -rf .git'
-            }
-        }
+    
     stage('SCM CHECKOUT')
      steps{
       
-      git branch: 'master', url: 'https://github.com/Java-Project-03-9AM/SpringMVCFormApp.git'
+     git 'https://github.com/deepaneerugatte/maven-firstwebproject.git'
+}
+
       }
 /*    stage('BUILD ARTIFACT'){
 
     }
     stage('Deploy-war to remote tomcat server through SSH'){
 
-    }
-  } */
-}
+    }*/
+  } 
