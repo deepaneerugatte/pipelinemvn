@@ -17,7 +17,7 @@ pipeline{
        stage('BUILD ARTIFACT'){
        steps{
        sh "mvn -f webapplication clean package"
-       sh "mv target/*.war target/warfile.war"
+       sh "mv /target/*.war /target/warfile.war"
        }
        }
      stage('Deploy-war to remote tomcat server through SSH'){
