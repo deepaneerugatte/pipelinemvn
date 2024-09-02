@@ -9,7 +9,6 @@ pipeline{
         cleanWs()
     }
 }
-
        stage('SCM CHECKOUT'){
        steps{   
        git branch: 'main', url: 'https://github.com/deepaneerugatte/maven-firstwebproject.git'
@@ -18,10 +17,18 @@ pipeline{
        stage('BUILD ARTIFACT'){
        steps{
        sh "mvn -f webapplication clean package"
+       sh "mv target/*.war target/warfile.war"
        }
        }
-  /*  stage('Deploy-war to remote tomcat server through SSH'){
-
-    } */
+     stage('Deploy-war to remote tomcat server through SSH'){
+    steps{
+      sshagent(['ssh']) {
+      sh """
+     scp -o StrictHostKeyChecking=no target/warfile.war root@192.168.0.125:/opt/apache-tomcat-9.0.93/webapps/
+     ssh root@192.168.0.125 /opt/apache-tomcat-9.0.93/bin/shutdown.sh
+     ssh root@192.168.0.125 /opt/apache-tomcat-9.0.93/bin/startup.sh
+     sh """
+     }}
+    } 
   } 
 }
