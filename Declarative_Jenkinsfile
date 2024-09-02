@@ -1,17 +1,21 @@
 pipeline{
+ agent any
+  environment{
+  PATH="/opt/apache-maven-3.9.5/bin:$PATH"
+  }
   stages{
-    
-    stage('SCM CHECKOUT')
-     steps{
-      
-     git 'https://github.com/deepaneerugatte/maven-firstwebproject.git'
-}
+       stage('SCM CHECKOUT'){
+       steps{   
+       git 'https://github.com/deepaneerugatte/maven-firstwebproject.git'
+       }
+       }
+       stage('BUILD ARTIFACT'){
+       steps{
+       sh "mvn clean package"
+       }
+       }
+  /*  stage('Deploy-war to remote tomcat server through SSH'){
 
-      }
-/*    stage('BUILD ARTIFACT'){
-
-    }
-    stage('Deploy-war to remote tomcat server through SSH'){
-
-    }*/
+    } */
   } 
+}
