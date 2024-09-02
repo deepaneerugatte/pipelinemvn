@@ -6,7 +6,7 @@ pipeline{
   stages{
        stage('SCM CHECKOUT'){
        steps{   
-       git 'https://github.com/deepaneerugatte/maven-firstwebproject.git'
+       git branch: 'main', url: 'https://github.com/deepaneerugatte/maven-firstwebproject.git'
        }
        }
        stage('BUILD ARTIFACT'){
