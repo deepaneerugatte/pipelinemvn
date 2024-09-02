@@ -4,6 +4,12 @@ pipeline{
   PATH="/opt/apache-maven-3.9.5/bin:$PATH"
   }
   stages{
+      stage('Clean Workspace') {
+    steps {
+        cleanWs()
+    }
+}
+
        stage('SCM CHECKOUT'){
        steps{   
        git branch: 'main', url: 'https://github.com/deepaneerugatte/maven-firstwebproject.git'
