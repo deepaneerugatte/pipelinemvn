@@ -1,10 +1,11 @@
 pipeline{
+agent any
 stages{
 stage('SCM checkout')
 {steps{
-
+git branch: 'main', url: 'https://github.com/deepaneerugatte/maven-firstwebproject.git'
 }}
-stage('Build artifact')
+*/stage('Build artifact')
 {steps{
 
 }}
@@ -27,6 +28,6 @@ stage('Sending email notifiction')
 stage('updating in slack')
 {steps{
 
-}}
+}}*/
 }
 }
