@@ -1,0 +1,32 @@
+pipeline{
+stages{
+stage('SCM checkout')
+{steps{
+
+}}
+stage('Build artifact')
+{steps{
+
+}}
+stage('checking code quality')
+{steps{
+
+}}
+stage('uploading artifact to nexus')
+{steps{
+
+}}
+stage('Deploying the app into tomcat server')
+{steps{
+
+}}
+stage('Sending email notifiction')
+{steps{
+
+}}
+stage('updating in slack')
+{steps{
+
+}}
+}
+}
