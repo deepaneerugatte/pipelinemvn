@@ -19,16 +19,14 @@ stage('checking code quality')
     {
     sh "mvn  -f webapplication sonar:sonar" }
 }}
-/*stage('uploading artifact to nexus')
+stage('uploading artifact to nexus')
 {steps{
-
-}}*/
-/*stage('Deploying the app into tomcat server')
+nexusArtifactUploader artifacts: [[artifactId: 'webapplication', classifier: '', file: 'webapplication/target/webapplication.war', type: 'war']], credentialsId: 'nexus', groupId: 'firstproject', nexusUrl: '192.168.0.169:8081', nexusVersion: 'nexus3', protocol: 'http', repository: 'host-snapshot', version: '1.0-SNAPSHOT'
+}}
+stage('Deploying the app into tomcat server')
 {steps{
     deploy adapters: [tomcat9(credentialsId: 'tomcat124server', path: '', url: 'http://192.168.0.124:8085')], contextPath: null, war: ' webapplication/target/webapplication.war '
- sh "/opt/apache-tomcat-9.0.93/webapps/shutdown.sh"
- sh "/opt/apache-tomcat-9.0.93/webapps/startup.sh"
-}}*/
+}}
 /*stage('Sending email notifiction')
 {steps{
 
