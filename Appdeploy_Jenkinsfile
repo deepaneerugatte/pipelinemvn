@@ -13,20 +13,22 @@ stage('Build artifact')
     sh "mvn -f webapplication clean package"
 
 }}
-/*stage('checking code quality')
+stage('checking code quality')
 {steps{
-
+    withSonarQubeEnv(installationName: 'sonarqube-server',credentialsId: 'new_token169') 
+    {
+    sh "mvn  -f webapplication sonar:sonar" }
 }}
-stage('uploading artifact to nexus')
+/*stage('uploading artifact to nexus')
 {steps{
 
 }}*/
-stage('Deploying the app into tomcat server')
+/*stage('Deploying the app into tomcat server')
 {steps{
     deploy adapters: [tomcat9(credentialsId: 'tomcat124server', path: '', url: 'http://192.168.0.124:8085')], contextPath: null, war: ' webapplication/target/webapplication.war '
-/* sh "/opt/apache-tomcat-9.0.93/webapps/shutdown.sh"
- sh "/opt/apache-tomcat-9.0.93/webapps/startup.sh"*/
-}}
+ sh "/opt/apache-tomcat-9.0.93/webapps/shutdown.sh"
+ sh "/opt/apache-tomcat-9.0.93/webapps/startup.sh"
+}}*/
 /*stage('Sending email notifiction')
 {steps{
 
