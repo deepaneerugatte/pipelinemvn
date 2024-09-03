@@ -24,8 +24,6 @@ pipeline{
     steps{
       
       sshagent(['ssh_pvtkey']) {
-
-
       sh """
      scp -o StrictHostKeyChecking=no webapplication/target/warfile.war root@192.168.0.125:/opt/apache-tomcat-9.0.93/webapps/
      ssh root@192.168.0.125 /opt/apache-tomcat-9.0.93/bin/shutdown.sh
