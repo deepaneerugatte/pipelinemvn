@@ -30,8 +30,8 @@ pipeline{
      ssh root@192.168.0.125 /opt/apache-tomcat-9.0.93/bin/startup.sh
      sh """
      }
-    /* sshPublisher(publishers: [sshPublisherDesc(configName: 'host 1', sshCredentials: [encryptedPassphrase: '{AQAAABAAAAAQFIgeKOFs2VM2YK2STyWoFZZHItGuTYsuG9nZuXwy3pI=}', key: '', keyPath: '', username: 'root'], transfers: [sshTransfer(cleanRemote: false, excludes: '', execCommand: '', execTimeout: 120000, flatten: false, makeEmptyDirs: false, noDefaultExcludes: false, patternSeparator: '[, ]+', remoteDirectory: 'opt/apache-tomcat-9.0.93/webapps/', remoteDirectorySDF: false, removePrefix: 'webapplication/target', sourceFiles: 'webapplication/target/warfile.war')], usePromotionTimestamp: false, useWorkspaceInPromotion: false, verbose: false)])
-  */      
+    sshPublisher(publishers: [sshPublisherDesc(configName: 'host 1', sshCredentials: [encryptedPassphrase: '{AQAAABAAAAAQFIgeKOFs2VM2YK2STyWoFZZHItGuTYsuG9nZuXwy3pI=}', key: '', keyPath: '', username: 'root'], transfers: [sshTransfer(cleanRemote: false, excludes: '', execCommand: '', execTimeout: 120000, flatten: false, makeEmptyDirs: false, noDefaultExcludes: false, patternSeparator: '[, ]+', remoteDirectory: 'opt/apache-tomcat-9.0.93/webapps/', remoteDirectorySDF: false, removePrefix: 'webapplication/target', sourceFiles: 'webapplication/target/warfile.war')], usePromotionTimestamp: false, useWorkspaceInPromotion: false, verbose: false)])
+       
     }
     } 
   } 
